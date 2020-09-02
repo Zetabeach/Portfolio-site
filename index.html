@@ -2,6 +2,7 @@
 
 <head>
 <title>Jyri Saloranta | Freelance 3D models.</title>
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
 <meta name="description" content="Freelance 3D modeling">
 <meta name="keywords" content="3D, modeling, Freelance, Artist, 3D Artist, free, Printing">
 
@@ -110,7 +111,7 @@ alert(Message);
 
 <html>
 
-<body  onload="DisplayMap()">
+<body  style="text-align:center onload="DisplayMap()";>
 <h1>Jyri Salorata | Freelance 3D Modeling</h1>
 
 Website of Jyri Saloranta a 3D Artist from Finland<br/>
@@ -133,7 +134,7 @@ Your browser does not support the video tag.
   <br/>
 
 
-  <p>My Works:</p>
+  <p>List of some of my works:</p>
 <ol>
 <li>Knight Character for an action rpg game : <br/><img height="360" width="640"
 src="image/Knight2.jpg" /></li>
@@ -145,7 +146,7 @@ src="image/Revolver.jpg"/></li>
 </ol>
 
 <p>My Socials:</p>
-<table>
+<table align="center">
 <tr><td>Site</td><td>Web Address</td></tr>
 <tr><td>Portfolio</td><td><a href="http://jyrisaloranta.com" target="new">jyrisaloranta.com</a></td></tr>
 <tr><td>Twitter</td><td><a href="https://twitter.com/Zetabeach3D" target="new">@Zetabeach3D</a></td></tr>
@@ -157,22 +158,24 @@ src="image/Revolver.jpg"/></li>
 <p>Contact Me:</p>
 <form action="http://www.WebsiteDevelopmentBook.com/FormEcho.php" method="post" onsubmit="return validateForm()" >
 
-    <label for="fname">First Name</label>
+    <label for="fname">Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
 	<br> 
-    <label for="lname">Last Name</label>
+    <label for="lname">Email</label>
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 	<br> 
     <label for="country">Country</label>
     <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
+      <option value="Finland">Finland</option>
+      <option value="EU">EU</option>
+	  <option value="Asia">Asia</option>
+	  <option value="Moon">Moon</option>
       <option value="usa">USA</option>
     </select>
 	<br> 
     <label for="subject">Subject</label>
     <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
-
+	<br>
     <input type="submit" value="Submit">
 
   </form>
@@ -181,6 +184,7 @@ src="image/Revolver.jpg"/></li>
 
   <img style="display:block; margin-left:auto; margin-right:auto"  src="image/Knight.png"  draggable="true" />
   <img src="image/Gas.png" draggable="true" id="Gas" width="640" height="360" ondragstart="drag(event)"/>
+  Drag me :)
 
  <div ondragover="permitdrop(event)" ondrop="drop(event)" style="background-color: yellow;
 width:400px; height:300px"></div>
