@@ -1,22 +1,140 @@
 <!DOCTYPE html>
+
+<head>
+<title>Jyri Saloranta | Freelance 3D models.</title>
+<meta name="description" content="Freelance 3D modeling">
+<meta name="keywords" content="3D, modeling, Freelance, Artist, 3D Artist, free, Printing">
+
+
+
+
+<script>
+function drop(event)
+{
+event.preventDefault();
+var data=event.dataTransfer.getData("Text");
+event.target.appendChild(document.getElementById(data));
+}
+function permitdrop(event)
+{
+event.preventDefault();
+}
+function drag(event)
+{
+event.dataTransfer.setData("Text", event.target.id);
+}
+</script>
+
+<script>
+function validateForm()
+{
+if (document.forms["myForm"]["firstname"].value==null || document.forms["myForm"]["name"].value=="")
+{
+alert("Name must be filled out");
+return false;
+}
+if (document.forms["myForm"]["lastname"].value==null || document.forms["myForm"]["phone"].value=="")
+{
+alert("Phone must be filled out");
+return false;
+}
+if (document.forms["myForm"]["email"].value==null || document.forms["myForm"]["email"].value=="")
+{
+alert("Email must be filled out");
+return false;
+}
+return true;
+}
+</script>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+var map;
+function DisplayMap()
+{
+if (navigator.geolocation)
+navigator.geolocation.getCurrentPosition(DisplayResult, DisplayError)
+else
+alert("Browser does not support geolocation");
+}
+function DisplayResult(position)
+{
+vargeocoder;
+geocoder = new google.maps.Geocoder();
+varmapOptions = {
+zoom: 8,
+mapTypeId: google.maps.MapTypeId.ROADMAP,
+streetViewControl:true
+}
+map = new google.maps.Map(document.getElementById("mapLocation"), mapOptions);
+varlatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+geocoder.geocode({'latLng': latlng}, ResultsCallBack);
+}
+function ResultsCallBack (results, status)
+{
+if (status == google.maps.GeocoderStatus.OK)
+{
+map.setCenter(results[0].geometry.location);
+var marker = new google.maps.Marker({ map: map, position: results[0].geometry.location });
+}
+else
+alert("Geocode was not successful: " + status);
+}
+
+function ShowPosition()
+{
+if (navigator.geolocation)
+navigator.geolocation.getCurrentPosition(DisplayResult, DisplayError)
+else
+alert("Browser does not support geolocation");
+}
+function DisplayError(Error)
+{
+var message;
+switch(Error.code) {
+case 0: message = "Error retrieving location information";
+break;
+case 1: message = "User prevented location access";
+break;
+case 2: message = "Browser could not retrieve data";
+break;
+case 3: message = "Browser timed out during data retrieval";
+break;
+}
+alert(Message);
+}
+</script>
+
+</head>
+
+
 <html>
 
-<body>
+<body  onload="DisplayMap()">
+<h1>Jyri Salorata | Freelance 3D Modeling</h1>
 
-Hello, HTML world!<br/>
-  BlaalBlaa <br/>
+Website of Jyri Saloranta a 3D Artist from Finland<br/>
+ Here you can find a sample of my work. Click the link below to see my full Portfolio! <br/>
+ I can model allkinds of stuff from Printing, games to characters and enviroments.
   <a href="http://jyrisaloranta.com/"  target="new">Go to My Website</a>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-455.97656250000006%2C-79.99716840285254%2C108.984375%2C85.43013270440571&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=2/21.9/-173.5">View Larger Map</a></small>
+  <br/>
+  <br/>
 
 
   <p>My Works:</p>
 <ol>
 <li>Knight Character for an action rpg game : <br/><img height="360" width="640"
-src="image/Knight2.jpg"/></li>
+src="image/Knight2.jpg" /></li>
 <li>Gas Masked Character for an action rpg game: <br/><img height="360" width="640" src="image/Gas.png"/></li>
 <li>.40 Cal Revolver : <br/><img height="360" width="640"
 src="image/Revolver.jpg"/></li>
 <li>Volcanic Repeating Pistol: <br/><img height="640 width="640" src="image/Volcanic.jpg"/></li>
-<li>Plague masked Game Character: <br/><img height="879" width="703" src="image/plague.jpg"/></li>
+<li>Plague masked Game Character: <br/><img height="879" width="703" src="image/Plague.jpg"/></li>
 </ol>
 
 <p>My Socials:</p>
@@ -27,11 +145,37 @@ src="image/Revolver.jpg"/></li>
 <tr><td>Sketchfab Store</td><td><a href="https://sketchfab.com/zetabeach/store" target="new">Zetabeach</a></td></tr>
 <tr><td>A seal</td><td><a href="https://www.youtube.com/watch?v=I83oY-sqte0" target="new">Have a good Day!</a></td></tr>
 <table>
+<br> 
+<br> 
+<p>Contact Me:</p>
+<form action="http://www.WebsiteDevelopmentBook.com/FormEcho.php" method="post" onsubmit="return validateForm()" >
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+	<br> 
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+	<br> 
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+	<br> 
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
 
 
 
+  <img style="display:block; margin-left:auto; margin-right:auto"  src="image/Knight.png"  draggable="true" />
+  <img src="image/Gas.png" draggable="true" id="Gas" width="640" height="360" ondragstart="drag(event)"/>
 
-  <img style="display:block; margin-left:auto; margin-right:auto"  src="image/Knight.png"/>
-  <img style="display:block; margin-left:auto; margin-right:auto"  src="image/Gas.png"/>
+ <div ondragover="permitdrop(event)" ondrop="drop(event)" style="background-color: yellow;
+width:400px; height:300px"></div>
 </body>
 </html>
